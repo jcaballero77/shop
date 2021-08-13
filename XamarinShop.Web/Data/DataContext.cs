@@ -1,16 +1,15 @@
-﻿namespace XamarinShop.Web.Data
-{
-    using Microsoft.EntityFrameworkCore;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-    using XamarinShop.Web.Data.Entities;
+﻿using XamarinShop.Web.Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
-    public class DataContext:DbContext 
+namespace XamarinShop.Web.Data
+{
+    public class DataContext : IdentityDbContext<User>
     {
         public DbSet<Product>  Products{ get; set; }
+        public DbSet<Country>  countries { get; set; }
         public DataContext(DbContextOptions<DataContext> options) : base (options)
+
         { 
                     
         }
